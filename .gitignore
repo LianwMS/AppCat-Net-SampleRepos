@@ -1,0 +1,29 @@
+target/
+.idea/
+*.iml
+.vscode/
+.vs/
+
+# Gradle
+.gradle/
+!gradle-wrapper.jar
+build/
+
+**/node_modules/
+**/dist/
+**/build/
+**/coverage/
+
+.nuget
+
+.pytest_cache
+
+kafka-webview/kafka-webview-ui/src/main/resources/static
+
+# akv-plain-credential-dotnet-webform
+akv-plain-credential-dotnet-webform/packages
+akv-plain-credential-dotnet-webform/Client/bin
+akv-plain-credential-dotnet-webform/Client/obj
+akv-plain-credential-dotnet-webform/WebForm/bin
+akv-plain-credential-dotnet-webform/WebForm/obj
+

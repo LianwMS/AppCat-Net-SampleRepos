@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E2C3FE3-EC67-4C2B-9CF5-94EF6C9FFF6F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sensu_client</RootNamespace>
+    <AssemblyName>sensu-client</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">.\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>35</ApplicationRevision>
+    <ApplicationVersion>1.5.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>packages\NLog.4.1.2\lib\net40\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=3.3.5.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\RabbitMQ.Client.3.3.5\lib\net30\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\structuremap.3.1.2.138\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\structuremap.3.1.2.138\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data">
+    </Reference>
+    <Reference Include="System.ServiceProcess">
+    </Reference>
+    <Reference Include="System.Xml">
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckProcessor.cs" />
+    <Compile Include="Command\CommandConfiguration.cs" />
+    <Compile Include="Configuration\ChecksConverter.cs" />
+    <Compile Include="Command\CommandFactory.cs" />
+    <Compile Include="Configuration\Configuration.cs" />
+    <Compile Include="Configuration\ConfigurationPathResolver.cs" />
+    <Compile Include="Configuration\ConfigurationPathResolverTest.cs" />
+    <Compile Include="Configuration\IConfigurationPathResolver.cs" />
+    <Compile Include="Configuration\LowercaseContractResolver.cs" />
+    <Compile Include="Configuration\ISensuClientConfig.cs" />
+    <Compile Include="Configuration\ISensuClientConfigurationReader.cs" />
+    <Compile Include="Helpers\CoreAssembly.cs" />
+    <Compile Include="Helpers\SensuClientHelper.cs" />
+    <Compile Include="IKeepAliveScheduler.cs" />
+    <Compile Include="StandAlone\IStandAloneCheckScheduler.cs" />
+    <Compile Include="ISensuClient.cs" />
+    <Compile Include="Connection\ISensuRabbitMqConnectionFactory.cs" />
+    <Compile Include="ISocketServer.cs" />
+    <Compile Include="ISubScriptionsReceiver.cs" />
+    <Compile Include="KeepAliveScheduler.cs" />
+    <Compile Include="StandAlone\SchedueledItem.cs" />
+    <Compile Include="StandAlone\StandAloneCheckScheduler.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensuClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Configuration\SensuClientConfig.cs" />
+    <Compile Include="Configuration\SensuClientConfigConverter.cs" />
+    <Compile Include="Configuration\SensuClientConfigurationReader.cs" />
+    <Compile Include="SensuClientRegistry.cs" />
+    <Compile Include="Connection\SensuRabbitMqConnectionFactory.cs" />
+    <Compile Include="SocketServer.cs" />
+    <Compile Include="SubScriptionsReceiver.cs" />
+    <Compile Include="TcpServer\ITcpServer.cs" />
+    <Compile Include="TcpServer\TcpServer.cs" />
+    <Compile Include="TcpServer\TcpServerConnection.cs" />
+    <Compile Include="UdpReceiver\UdpReciever.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="conf.d\client.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,8 @@
+﻿{
+  "client": {
+    "name": "demo-computer",
+    "address": "10.8.16.8",
+    "subscriptions": ["windows","windowschecks"],
+	"safemode": false,
+  }
+}
